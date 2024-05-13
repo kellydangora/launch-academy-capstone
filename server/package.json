@@ -20,7 +20,7 @@
   "private": true,
   "type": "module",
   "version": "0.0.1",
-  "name": "engage-boilerplate-server",
+  "name": "Multi-Family-Marketplace-server",
   "engines": {
     "node": "^16.18"
   },
