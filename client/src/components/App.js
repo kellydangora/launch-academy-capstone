@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { hot } from "react-hot-loader/root";
+import React, { useState, useEffect } from "react"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { hot } from "react-hot-loader/root"
 
-import "../assets/scss/main.scss";
+import "../assets/scss/main.scss"
 
-import getCurrentUser from "../services/getCurrentUser";
+import getCurrentUser from "../services/getCurrentUser"
 
-import RegistrationForm from "./registration/RegistrationForm";
-import SignInForm from "./authentication/SignInForm";
-import TopBar from "./layout/TopBar";
+import RegistrationForm from "./registration/RegistrationForm"
+import SignInForm from "./authentication/SignInForm"
+import TopBar from "./layout/TopBar"
+import PropertyShow from "./PropertyShow"
+import PropertyList from "./PropertyList"
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -30,10 +32,17 @@ const App = (props) => {
       <TopBar user={currentUser} />
       <Switch>
         <Route exact path="/">
-          <h2>Hello from react</h2>
+          <PropertyList user={currentUser} />
+          <h2>Multi-Family Marketplace</h2>
+        </Route>
+        <Route exact path="/properties">
+          <PropertyList user={currentUser} />
         </Route>
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
+        <Route exact path="/properties/:id">
+          <PropertyShow user={currentUser} />
+        </Route>
       </Switch>
     </Router>
   );

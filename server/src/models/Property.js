@@ -21,12 +21,19 @@ class Property extends Model {
         userId: { type: "integer" },
         location: { type: "string" },
         price: { type: "integer" },
+        yearBuilt: { type: "integer" },
         squft: { type: "integer" },
         dateListed: { type: "string" },
         dateAvailable: { type: "string" },
+        numberOfUnites: { type: "integer" },
         numberOfFloors: { type: "integer" },
         numberOfBedrooms: { type: "integer" },
-        numberOfBathrooms: { type: "integer" }
+        numberOfBathrooms: { type: "integer" },
+        heating: { type: "string" },
+        cooling: { type: "string" },
+        laundry: { type: "string" },
+        parking: { type: "string" },
+        realEstateCompany: { type: "string" }
       },
     }
   }

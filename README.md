@@ -1,34 +1,39 @@
-# Kelly's Capstone
+# Multi-Family-Marketplace
 
-### Rename Boilerplate
+Author: Kelly Dangora
 
-The application will have all configurations set up with the name `Multi-Family-Marketplace`. You can change the name to match and be consistent with the name of your project. To do this, use a global search (using the Search magnifying glass in VSCode) to look for all instances of `Multi-Family-Marketplace` and replace it with the hyphenated name of your project (the search should find references to files with your database names, `package.json` files, etc.).
+# Description
 
-## Adding to GitHub
+This app allows users to sell their multi-family home and users to buy a multi-family home.
 
-1. Initialize your project with GitHub in the terminal:
+## Features
 
-   ```sh
-   git init
-   git add .
-   git commit -m "initial commit"
-   ```
+- Users can create a profile whether they're a buyer, seller or both.
+- Users can add the house they're selling.
+- Users can apply for a house they want.
+- Users can filter settings based on home preferences.
+- Users can "like" houses they're interested in.
 
-2. Create a new repository on your GitHub:
+## Technologies Used
 
-   - From your GitHub page in the browser, click on the tab for `Repositories`, then click the green button for `New`
-   - Add a Repository name - for simplicity, you might use the same name that you chose for the project
-   - Select `Public` for the type of repository if you want others to see your work
-   - Skip any options that mention adding additional files (such as a README.md or .gitignore)
-   - Click `Create Repository`
+- Javascript
+- React.js
+- Express.js
+- Postgres
+- Objection.js
+- SQL
 
-3. On the next page, you will see sets of terminal commands. Use the option to `push an existing repository from the command line`:
+## License
 
-   ```sh
-   git remote add origin <- use the provided URL to your repo on GitHub ->
-   git branch -M main
-   git push -u origin main
-   ```
+This program is available as open source under the terms of the MIT License.
+
+
+## Installation
+
+For a copy of this repository please `Download ZIP` (found under the green `Code` button).
+
+After unpacking the ZIP you can rename the folder/ directory for your new project.
+
 
 ## Usage
 
