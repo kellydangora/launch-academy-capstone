@@ -9,7 +9,7 @@ class Property extends Model {
   static get jsonSchema() {
     return {
       type: "object",
-      required: ["location", 
+      required: ["location",
                   "price", 
                   "squft", 
                   "dateListed", 
@@ -21,18 +21,25 @@ class Property extends Model {
         userId: { type: "integer" },
         location: { type: "string" },
         price: { type: "integer" },
+        yearBuilt: { type: "integer" },
         squft: { type: "integer" },
         dateListed: { type: "string" },
         dateAvailable: { type: "string" },
+        numberOfUnites: { type: "integer" },
         numberOfFloors: { type: "integer" },
         numberOfBedrooms: { type: "integer" },
-        numberOfBathrooms: { type: "integer" }
+        numberOfBathrooms: { type: "integer" },
+        heating: { type: "string" },
+        cooling: { type: "string" },
+        laundry: { type: "string" },
+        parking: { type: "string" },
+        realEstateCompany: { type: "string" }
       },
     }
   }
 
   static get relationMappings(){
-    const { User } = require("./index.js")
+    const { User, Detail } = require("./index.js")
     return {
       user: {
         relation: Model.BelongsToOneRelation,
@@ -40,8 +47,16 @@ class Property extends Model {
         join: {
           from: "properties.userId",
           to: "users.id",
-        },
+        }
       },
+      detail: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: Detail,
+        join: {
+          from: "properties.detailId",
+          to: "details.id"
+        }
+      }
     }
   }
 }

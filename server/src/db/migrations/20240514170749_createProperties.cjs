@@ -24,6 +24,7 @@ exports.up = async (knex) => {
     table.string("laundry")
     table.string("parking")
     table.string("realEstateCompany")
+    table.string("description")
     table.timestamp("createdAt").notNullable().defaultTo(knex.fn.now())
     table.timestamp("updatedAt").notNullable().defaultTo(knex.fn.now())
   })
