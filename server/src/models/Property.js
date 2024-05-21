@@ -9,7 +9,7 @@ class Property extends Model {
   static get jsonSchema() {
     return {
       type: "object",
-      required: ["location", 
+      required: ["location",
                   "price", 
                   "squft", 
                   "dateListed", 
@@ -39,7 +39,7 @@ class Property extends Model {
   }
 
   static get relationMappings(){
-    const { User } = require("./index.js")
+    const { User, Detail } = require("./index.js")
     return {
       user: {
         relation: Model.BelongsToOneRelation,
@@ -47,8 +47,16 @@ class Property extends Model {
         join: {
           from: "properties.userId",
           to: "users.id",
-        },
+        }
       },
+      detail: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: Detail,
+        join: {
+          from: "properties.detailId",
+          to: "details.id"
+        }
+      }
     }
   }
 }
