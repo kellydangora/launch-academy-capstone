@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 //import translateServerErrors from "../../services/translateServerErrors.js"
-//import ErrorList from "./ErrorList.js"
+import ErrorList from "./layout/ErrorList.js"
 
 const NewPropertyForm = () => {
   const [newProperty, setNewProperty] = useState({ location: "", price: "" })

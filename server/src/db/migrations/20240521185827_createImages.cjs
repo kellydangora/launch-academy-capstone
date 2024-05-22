@@ -6,14 +6,12 @@
  * @param {Knex} knex
  */
 exports.up = async (knex) => {
-  return knex.schema.createTable("details", (table) => {
+  return knex.schema.createTable("images", (table) => {
     table.bigIncrements("id")
-    table.string("flooring")
-    table.string("appliancesIncluded")
-    table.string("interiorFeatures")
-    table.string("exteriorFeatures")
-    table.string("neighborhoodFeatures")
-    table.string("communityFeatures")
+    table.bigInteger("propertyId").unsigned().notNullable().index().references("properties.id")
+    table.string("name").notNullable()
+    table.string("category")
+    table.string("imageUrl").notNullable()
     table.timestamp("createdAt").notNullable().defaultTo(knex.fn.now())
     table.timestamp("updatedAt").notNullable().defaultTo(knex.fn.now())
   })
@@ -23,5 +21,5 @@ exports.up = async (knex) => {
  * @param {Knex} knex
  */
 exports.down = async (knex) => {
-  return knex.schema.dropTableIfExists("details")
+  return knex.schema.dropTableIfExists("images")
 };

@@ -62,7 +62,13 @@ const PropertyShow = (props) => {
       <div className="property-show">
         <h1>{property.location}</h1>
         <h4>{property.price}</h4>
-        </div>
+        
+        <p>New Image Form</p>
+        <form>
+          
+
+        </form>
+      </div>
     )
     }
 
