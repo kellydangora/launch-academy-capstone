@@ -12,7 +12,6 @@ class Image extends Model {
       images: {
         propertyId: { type: "integer" },
         name: { type: "string" },
-        category: { type: "string" },
         imageUrl: { type: "string" }
       }
     }
