@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 //import ErrorList from "./ErrorList.js"
-//import translateServerErrors from "../../services/translateServerErrors"
+import translateServerErrors from "../services/translateServerErrors"
+import NewImageForm from "./NewImageForm"
 
 const PropertyShow = (props) => {
-  const [property, setProperty] = useState({ location: "", details: [] })
-  //const [errors, setErrors] = useState([])
+  const [property, setProperty] = useState({ location: "", details: [], images: [] })
+  const [errors, setErrors] = useState([])
   
   const params = useParams()
   const propertyId = params.id
@@ -63,11 +64,7 @@ const PropertyShow = (props) => {
         <h1>{property.location}</h1>
         <h4>{property.price}</h4>
         
-        <p>New Image Form</p>
-        <form>
-          
-
-        </form>
+          <NewImageForm property={property} setProperty={setProperty}/>
       </div>
     )
     }
