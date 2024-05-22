@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { connection } from "../boot.js";
-import { Property } from "../models/index.js"
+import { User, Property } from "../models/index.js"
 
 class Seeder {
   static async seed() {

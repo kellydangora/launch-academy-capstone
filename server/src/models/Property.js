@@ -10,13 +10,14 @@ class Property extends Model {
     return {
       type: "object",
       required: ["location",
-                  "price", 
-                  "squft", 
-                  "dateListed", 
-                  "dateAvailable", 
-                  "numberOfFloors", 
-                  "numberOfBedrooms", 
-                  "numberOfBathrooms"],
+        "price", 
+        "squft", 
+        "dateListed", 
+        "dateAvailable", 
+        "numberOfFloors", 
+        "numberOfBedrooms", 
+        "numberOfBathrooms"
+      ],
       properties: {
         userId: { type: "integer" },
         location: { type: "string" },
@@ -39,7 +40,7 @@ class Property extends Model {
   }
 
   static get relationMappings(){
-    const { User, Detail } = require("./index.js")
+    const { User } = require("./index.js")
     return {
       user: {
         relation: Model.BelongsToOneRelation,
@@ -49,14 +50,6 @@ class Property extends Model {
           to: "users.id",
         }
       },
-      detail: {
-        relation: Model.BelongsToOneRelation,
-        modelClass: Detail,
-        join: {
-          from: "properties.detailId",
-          to: "details.id"
-        }
-      }
     }
   }
 }
