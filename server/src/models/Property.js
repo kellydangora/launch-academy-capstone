@@ -19,14 +19,14 @@ class Property extends Model {
         "numberOfBathrooms"
       ],
       properties: {
-        userId: { type: "integer" },
+        userId: { type: ["integer", "string"] },
         location: { type: "string" },
         price: { type: "integer" },
         yearBuilt: { type: "integer" },
         squft: { type: "integer" },
         dateListed: { type: "string" },
         dateAvailable: { type: "string" },
-        numberOfUnites: { type: "integer" },
+        numberOfUnits: { type: "integer" },
         numberOfFloors: { type: "integer" },
         numberOfBedrooms: { type: "integer" },
         numberOfBathrooms: { type: "integer" },
@@ -34,13 +34,14 @@ class Property extends Model {
         cooling: { type: "string" },
         laundry: { type: "string" },
         parking: { type: "string" },
-        realEstateCompany: { type: "string" }
+        realEstateCompany: { type: "string" },
+        description: { type: "string" }
       },
     }
   }
 
   static get relationMappings(){
-    const { User } = require("./index.js")
+    const { User, Image } = require("./index.js")
     return {
       user: {
         relation: Model.BelongsToOneRelation,
@@ -50,6 +51,14 @@ class Property extends Model {
           to: "users.id",
         }
       },
+      images: {
+        relation: Model.HasManyRelation,
+        modelClass: Image,
+        join: {
+          from: "properties.id",
+          to: "images.propertyId"
+        }
+      }
     }
   }
 }

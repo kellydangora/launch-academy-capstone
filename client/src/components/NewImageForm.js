@@ -1,9 +1,9 @@
 import React, { useState } from "react"
-import translateServerErrors from "../../services/translateServerErrors.js"
-import ErrorList from "./ErrorList.js"
+import translateServerErrors from "../services/translateServerErrors"
+//import ErrorList from "./ErrorList.js"
 import Dropzone from "react-dropzone"
 
-const NewImageForm = ({ postImage }) => {
+const NewImageForm = ({ property, setProperty }) => {
   const [newImage, setNewImage] = useState({ name: "", imageUrl: {} })
 
   const handleInputChange = event => {
@@ -17,6 +17,7 @@ const NewImageForm = ({ postImage }) => {
     event.preventDefault()
     const newImageBody = new FormData()
     newImageBody.append("name", newImage.name)
+    newImageBody.append("propertyId", property.id)
     newImageBody.append("imageUrl", newImage.imageUrl)
     postImage(newImageBody)
     setNewImage({
@@ -54,7 +55,7 @@ const NewImageForm = ({ postImage }) => {
       } else {
         const body = await response.json()
         const newImageEntry = body.image
-        setImages([...images, newImageEntry])
+        setProperty({ ...property, images: property.images.concat(newImageEntry)})
         setErrors([])
       }
     } catch (error) {
@@ -92,3 +93,14 @@ const NewImageForm = ({ postImage }) => {
   )
 }
 export default NewImageForm
+
+// seed 1-2 properties 
+// make a relationmapping from properties to images
+// read the second article on file uploading in the cloud with multer and AWS. See your group project for good example
+  // make an images router
+  // add multer and aws 
+  // add an image uploader
+  // sign up to amazon s3 and configure a bucket -> need to acquire amazon AWS key and secret key
+  // edit the config files 
+  // add multer to your imagesRouter endpoint that you are posting to
+  // get the imageUrl from params that you can persist with your image name in the images table
