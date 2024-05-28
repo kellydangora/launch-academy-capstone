@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-//import ErrorList from "./ErrorList.js"
+import ErrorList from "./layout/ErrorList.js"
 import translateServerErrors from "../services/translateServerErrors"
 import NewImageForm from "./NewImageForm"
+import ImageList from "./ImageList"
 
 const PropertyShow = (props) => {
-  const [property, setProperty] = useState({ location: "", details: [], images: [] })
-  const [errors, setErrors] = useState([])
+  const [property, setProperty] = useState({ details: [], images: [] })
   
+  const [errors, setErrors] = useState([])
   const params = useParams()
   const propertyId = params.id
   const getProperty = async () => {
@@ -21,14 +22,14 @@ const PropertyShow = (props) => {
       const responseBody = await response.json()
       setProperty(responseBody.property)
     } catch (err) {
-      console.error(`Error in fetch: ${err.message}`)
+      console.error(err)
     }
   }
 
   const postProperty = async (newPropertyData) => {
     newPropertyData.userId = props.user.id
     try {
-      const response = await fetch(`/api/v1/properties/${propertyId}/details`, {
+      const response = await fetch(`/api/v1/properties/${propertyId}/images`, {
         method: "POST",
         headers: new Headers({
           "Content-Type": "application/json",
@@ -47,8 +48,8 @@ const PropertyShow = (props) => {
       }
     }
     const responseBody = await response.json()
-    const newDetail= responseBody.detail
-    setProperty({ ...property, details: [...property.details, newDetail]})
+    const newImage = responseBody.image
+    setProperty({ ...property, images: [...property.images, newImage]})
     setErrors([])
   } catch (error) {
     console.error(`Error in fetch: ${error.message}`)
@@ -61,15 +62,16 @@ const PropertyShow = (props) => {
 
     return (
       <div className="property-show">
-        <h1>{property.location}</h1>
-        <h4>{property.price}</h4>
+        <h1>{property.imageUrl}</h1>
+        <h4>{property.userId}</h4>
+        <h5>{property.location}</h5>
+        <ImageList user={props.user} />
         
-          <NewImageForm property={property} setProperty={setProperty}/>
+          <NewImageForm property={property} postProperty={postProperty} setProperty={setProperty} />
+          <ErrorList errors={errors} />
       </div>
     )
-    }
-
-
+  }
 
 
   export default PropertyShow
