@@ -43,7 +43,7 @@ class Seeder {
                                     parking: "street parking",
                                     realEstateCompany: "Kelly's Reality",
                                     description: "completely re-done",
-                                    userId: user1.id
+                                    userId: user2.id
                                   })
   
 
@@ -51,9 +51,5 @@ class Seeder {
     await connection.destroy();
   }
 }
-// ValidationError: numberOfBathrooms: must have required property 'numberOfBathrooms', 
-// price: must be integer, yearBuilt: must be integer, squft: must be integer,
-// numberOfUnits: must be integer, numberOfFloors: must be integer, 
-// numberOfBedrooms: must be integer
 
 export default Seeder;

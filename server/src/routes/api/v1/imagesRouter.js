@@ -2,6 +2,8 @@ import express from "express"
 import { Image } from "../../../models/index.js"
 import objection from "objection"
 const { ValidationError } = objection
+import uploadImage from "../../../services/uploadImage.js"
+
 //import cleanUserInput from "../../../services/cleanUserInput.js"
 
 const imagesRouter = new express.Router()

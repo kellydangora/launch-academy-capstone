@@ -32,8 +32,8 @@ const App = (props) => {
       <TopBar user={currentUser} />
       <Switch>
         <Route exact path="/">
+        <h2>Multi-Family Marketplace</h2>
           <PropertyList user={currentUser} />
-          <h2>Multi-Family Marketplace</h2>
         </Route>
         <Route exact path="/properties">
           <PropertyList user={currentUser} />

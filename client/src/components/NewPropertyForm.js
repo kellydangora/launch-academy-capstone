@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-//import translateServerErrors from "../../services/translateServerErrors.js"
+import translateServerErrors from "../services/translateServerErrors.js"
 import ErrorList from "./layout/ErrorList.js"
 
 const NewPropertyForm = () => {
