@@ -8,9 +8,13 @@ import imagesRouter from "./api/v1/imagesRouter.js"
 
 const rootRouter = new express.Router();
 
-rootRouter.get("/", (req, res) => {
-  res.redirect("/properties")
+/**
+ * rootRouter.get("/", (req, res) => {
+  res.redirect("/properties");
+
 })
+ */
+
 
 rootRouter.use("/", clientRouter);
 rootRouter.use("/api/v1/user-sessions", userSessionsRouter);

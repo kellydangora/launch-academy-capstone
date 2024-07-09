@@ -1,6 +1,13 @@
 import "./boot.js";
 import getNodeEnv from "./config/getNodeEnv.js";
 import getDatabaseUrl from "./config/getDatabaseUrl.cjs";
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+
 
 const development = {
   nodeEnv: getNodeEnv(),
@@ -13,6 +20,7 @@ const development = {
 };
 
 const test = { ...development }
+
 
 const e2e = { ...development }
 
