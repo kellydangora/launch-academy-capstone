@@ -10,6 +10,13 @@ AWS.config.update({
   region: "us-east-2"
 })
 
+/**
+ * access key: AKIAW3RYDDORK3VTRYVX
+secret access key: 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
+
+ */
+
+
 const s3 = new AWS.S3()
 
 const uploadImage = multer({
