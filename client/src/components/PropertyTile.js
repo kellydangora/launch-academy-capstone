@@ -1,7 +1,29 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import "../assets/scss/componentStyles/PropertyTile.scss"
+import myImage from "../../public/images/temp.jpg"
 
 const PropertyTile = props => {
+  return (
+    <div>
+      <div className="tile-wrapper">
+        <div className="tile-image-wrapper">
+          <img src={myImage}/>
+        </div>
+        <div className="tile-desc-container">
+          <div className="tile-desc-header">{props.propertyName}</div>
+          <div className="tile-desc-address">{props.address}</div>
+          <div className="tile-desc-details">Studio - {props.numberOfBedrooms}beds & {props.numberOfBathrooms} | ${props.price}</div>
+        </div>   
+      </div>
+    </div>
+  )
+}
+
+
+
+/**
+ * const PropertyTile = props => {
   const { id, 
           location, 
           price, 
@@ -18,10 +40,10 @@ const PropertyTile = props => {
           laundry,
           parking,
           realEstateCompany,
-          description } = props.property
+          description } = props[0]
           
           return (
-          <li><Link to={`/property/${id}`}>
+          <li><Link to={`/api/v1/properties/${id}`}>
             Address: {location}
             Price: ${price}
             Built in: {yearBuilt}
@@ -41,4 +63,6 @@ const PropertyTile = props => {
             </Link></li>
   )
 }
+
+ */
 export default PropertyTile

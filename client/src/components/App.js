@@ -9,6 +9,8 @@ import getCurrentUser from "../services/getCurrentUser"
 import RegistrationForm from "./registration/RegistrationForm"
 import SignInForm from "./authentication/SignInForm"
 import TopBar from "./layout/TopBar"
+import Hero from "./layout/Hero"
+import Footer from "./layout/Footer"
 import PropertyShow from "./PropertyShow"
 import PropertyList from "./PropertyList"
 
@@ -26,25 +28,47 @@ const App = (props) => {
   useEffect(() => {
     fetchCurrentUser();
   }, []);
+//<PropertyList user={currentUser} />
+//<TopBar user={currentUser} />
+//<h2>Multi-Family Marketplace</h2>
+
+
 
   return (
     <Router>
-      <TopBar user={currentUser} />
+      <TopBar/>
+      <Hero/>
+      <PropertyList />
+      <Footer/>
+
+
+      
+
+
+
+
+    </Router>
+    /**
+     * <Router>
+      <TopBar/>
       <Switch>
         <Route exact path="/">
-        <h2>Multi-Family Marketplace</h2>
-          <PropertyList user={currentUser} />
+        <Hero/>
+          <PropertyList />
         </Route>
         <Route exact path="/properties">
-          <PropertyList user={currentUser} />
+          <PropertyList />
+          
         </Route>
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
         <Route exact path="/properties/:id">
-          <PropertyShow user={currentUser} />
+          <PropertyShow  />
         </Route>
       </Switch>
+      <Footer/>
     </Router>
+     */
   );
 };
 

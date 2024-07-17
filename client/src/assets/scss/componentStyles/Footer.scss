@@ -1,0 +1,144 @@
+//mixin for responsive breakpoints
+@mixin respond-to($media) {
+    @if $media == 'small' {
+      @media (max-width:767px) {@content;}
+    } @else if $media == 'medium' {
+      @media(min-width: 768px) and (max-width: 1025px) {@content;}
+    } @else if $media == 'large' {
+      @media(min-width:1026px) {@content;}
+    }
+  }
+
+  @include respond-to('large'){
+
+    .footer-container {
+        border: 1px solid rgba(221, 221, 221, 1);
+        position: relative;
+        top: 20vh;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 50vh;
+        margin-top: 10vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .footer-socials, .footer-marketplace, .footer-about{
+        width: 100%;
+        margin: 1vh 0.5vw;
+    }
+
+    .footer-logo{
+        font-size: 40px;
+        background: -webkit-linear-gradient(#06D001, #3FA2F6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: Clash Display;
+        font-weight: bold;
+      
+    }
+
+    .footer-socials{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        padding: 5vh 3vw;
+        
+    }
+    
+
+  }
+
+  //medium
+
+  @include respond-to('medium'){
+
+    .footer-container {
+        border: 1px solid rgba(221, 221, 221, 1);
+        position: relative;
+        top: 20vh;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 50vh;
+        margin-top: 10vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .footer-socials, .footer-marketplace, .footer-about{
+        width: 100%;
+        margin: 1vh 0.5vw;
+    }
+
+    .footer-logo{
+        font-size: 40px;
+        background: -webkit-linear-gradient(#06D001, #3FA2F6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: Clash Display;
+        font-weight: bold;
+      
+    }
+
+    .footer-socials{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        padding: 5vh 3vw;
+        
+    }
+    
+
+  }
+  //small
+
+
+  @include respond-to('small'){
+
+    .footer-container {
+        border: 1px solid rgba(221, 221, 221, 1);
+        position: relative;
+        top: 20vh;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 50vh;
+        margin-top: 10vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .footer-socials, .footer-marketplace, .footer-about{
+        width: 100%;
+        margin: 1vh 0.5vw;
+    }
+
+    .footer-logo{
+        font-size: 30px;
+        background: -webkit-linear-gradient(#06D001, #3FA2F6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: Clash Display;
+        font-weight: bold;
+      
+    }
+
+    .footer-socials{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        padding: 5vh 3vw;
+        
+    }
+
+    .footer-company {
+      font-size: 12px;
+    }
+    
+
+  }

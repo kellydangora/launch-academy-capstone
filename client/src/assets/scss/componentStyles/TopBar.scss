@@ -1,0 +1,177 @@
+@mixin respond-to($media) {
+    @if $media == 'small' {
+      @media (max-width:767px) {@content;}
+    } @else if $media == 'medium' {
+      @media(min-width: 768px) and (max-width: 1025px) {@content;}
+    } @else if $media == 'large' {
+      @media(min-width:1026px) {@content;}
+    }
+  }
+
+  @include respond-to('large'){
+
+    .nav-wrapper {
+        border: 1px solid rgba(221, 221, 221, 1);
+        background-color:  rgba(221, 221, 221, 1);
+        height: 6vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav-left, .nav-right{
+        text-align: center;
+        
+    }
+    .nav-left{
+        margin-left: 3vw;
+        background: -webkit-linear-gradient(#06D001, #3FA2F6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: Clash Display;
+        font-weight: bold;
+        cursor: pointer;
+      
+    }
+    .nav-right{
+        margin-right: 5vw;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .sign-in {
+        font-size: 16px;
+        margin-right: 3vw;
+        cursor: pointer;
+    }
+    .sign-up-btn{
+        background-color: #3FA2F6;
+        width: 10vw;
+        font-size: 16px;
+        padding-top: 1vh;
+        padding-bottom: 1vh;
+        border-radius: 10px;
+        color: white;
+        cursor: pointer;
+        transition: background-color 1s ease-in-out;
+    }
+
+    .sign-up-btn:hover{
+        background-color: rgba(23, 121, 186, 0.5);
+
+    }
+
+}
+//medium
+@include respond-to('medium') {
+    .nav-wrapper {
+        border: 1px solid rgba(221, 221, 221, 1);
+        background-color:  rgba(221, 221, 221, 1);
+        height: 6vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    .nav-left, .nav-right{
+        text-align: center;
+        
+    }
+    .nav-left{
+        margin-left: 1vw;
+        background: -webkit-linear-gradient(#06D001, #3FA2F6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: Clash Display;
+        font-weight: bold;
+        cursor: pointer;
+      
+    }
+    .nav-right{
+        margin-right: 1vw;
+        display: flex;
+        flex-direction: row;
+        align-items: last baseline;
+    }
+
+    .sign-in {
+        font-size: 12px;
+        margin-right: 3vw;
+        cursor: pointer;
+    }
+    .sign-up-btn{
+        background-color: #3FA2F6;
+        width: 20vw;
+        font-size: 12px;
+        padding-top: 1vh;
+        padding-bottom: 1vh;
+        border-radius: 10px;
+        color: white;
+        cursor: pointer;
+        transition: background-color 1s ease-in-out;
+    }
+
+    .sign-up-btn:hover{
+        background-color: rgba(23, 121, 186, 0.5);
+
+    }
+
+
+}
+//small
+@include respond-to('small') {
+    .nav-wrapper {
+        border: 1px solid rgba(221, 221, 221, 1);
+        background-color:  rgba(221, 221, 221, 1);
+        height: 6vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav-left, .nav-right{
+        text-align: center;
+        
+    }
+    .nav-left{
+        margin-left: 3vw;
+        background: -webkit-linear-gradient(#06D001, #3FA2F6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: Clash Display;
+        font-weight: bold;
+        cursor: pointer;
+      
+    }
+    .nav-right{
+        margin-right: 5vw;
+        display: flex;
+        flex-direction: row;
+        align-items: last baseline;
+    }
+
+    .sign-in {
+        font-size: 12px;
+        margin-right: 3vw;
+        cursor: pointer;
+    }
+    .sign-up-btn{
+        background-color: #3FA2F6;
+        width: 20vw;
+        font-size: 12px;
+        padding-top: 1vh;
+        padding-bottom: 1vh;
+        border-radius: 10px;
+        color: white;
+        cursor: pointer;
+        transition: background-color 1s ease-in-out;
+    }
+
+    .sign-up-btn:hover{
+        background-color: rgba(23, 121, 186, 0.5);
+
+    }
+
+
+}
